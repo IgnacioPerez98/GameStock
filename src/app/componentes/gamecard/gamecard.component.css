@@ -1,0 +1,52 @@
+.card{
+  margin: 10px;
+  height: 50vh;
+  border-radius: 20px;
+}
+.card-img-top{
+  height: 20vh;
+
+}
+.juegitoscargando{
+  width: 80vw;
+  display: block;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card-body{
+  overflow: scroll;
+}
+.spinner-grow{
+  margin-top: 10vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.juegitoscargandomodal{
+  overflow: visible;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centrado{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.btn-centrado{
+
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 5px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}

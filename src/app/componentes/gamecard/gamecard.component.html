@@ -1,0 +1,90 @@
+<ng-container *ngIf="loading; else dataContent">
+  <div class="juegitoscargando">
+    <div class="spinner-grow text-primary" role="status">
+    </div>
+    <span>Cargando catalogos de juegos...</span>
+  </div>
+</ng-container>
+    <ng-template #dataContent>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-4 col-md-3 col-sm-6 col-12" *ngFor="let j of juegos">
+              <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  <span class="material-symbols-outlined" style="font-size: 12px; display: inline-block">
+                    star_rate
+                  </span>
+                  <p style="display: inline-block">{{j.rating}}</p>
+                </div>
+                <img class="card-img-top" src="{{j.background_image}}" >
+                <div class="card-body">
+                  <h5 class="card-title centrado">{{j.name}}</h5>
+                  <p class="card-text centrado">Comentarios: {{j.reviews_text_count}}</p>
+                </div>
+                <div class="card-footer">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary btn-centrado" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="SetGameValue(j)">
+                    Ver reseña
+                  </button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Paginación -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <button class="page-link" (click)="PrevPage()" href="#" >Anterior</button>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">{{numpage}}</a></li>
+          <li class="page-item">
+            <button class="page-link" (click)="NexPage()" href="#">Siguiente</button>
+          </li>
+        </ul>
+      </nav>
+    </ng-template>
+<ng-container *ngIf="seleccionado else modalLoading">
+  <div class="modal fade"  id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{seleccionado.name}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{detalles.description_raw}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #modalLoading>
+  <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" >{{seleccionado.name}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="juegitoscargando">
+            <div class="spinner-grow text-primary" role="status">
+            </div>
+            <span>Cargando catalogos de juegos...</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+
+
