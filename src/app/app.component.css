@@ -1,24 +1,53 @@
 .headerdiv {
   margin-top: 0px;
-  height: 60px;
-  min-height: 10vh;
+  height: auto;
 }
 
 .contentdiv {
   background-color: #b1b4b5;
   position: relative;
   overflow: scroll;
-  min-height: 80vh;
+  min-height: 82vh;
 }
-
+.col-desaparece{
+  min-height: 82vh;
+}
 .footerdiv {
   position: relative;
   overflow: hidden;
   margin-bottom: 0px;
   padding-bottom: 0px;
-  height: 10vh;
-  min-height: 20px;
+  height: auto;
   width: 100%;
   background-color: darkblue;
+}
+
+.nav-left{
+  visibility: visible;
+  position: absolute;
+  width: 15vw;
+  min-height: 82vh;
+
+}
+.game{
+  position: relative;
+  width: 85vw;
+  margin-left: 15vw;
+}
+
+@media (max-width: 992px) {
+  .game{
+    width: 100vw;
+    margin-left: 0px;
+  }
+  .nav-left{
+    visibility: collapse;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-desaparece{
+    visibility: hidden;
+  }
 }
 

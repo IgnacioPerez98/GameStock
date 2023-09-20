@@ -16,7 +16,7 @@ export class GamecardComponent implements OnInit{
     loadingModal  :boolean = true;
     errorMessage : string = "";
     seleccionado:Games;
-    detalles:ResponseGameById;
+    detalles:ResponseGameById | null;
     constructor(private data :DataconsumeService)
     {
 
@@ -50,6 +50,8 @@ export class GamecardComponent implements OnInit{
       );
     }
     public SetGameValue(juego:Games){
+      this.detalles = null;
+      this.loadingModal = true;
       this.seleccionado = juego;
       this.data.GetGameById(juego.id+"").subscribe(
         (response)=>{
