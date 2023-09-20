@@ -1,12 +1,26 @@
 .header{
-  height: 100%;
+  min-height: 11vh;
+  max-height: 11vh;
 }
 .navbar-custom{
   background: rgb(2,0,36);
   background: linear-gradient(252deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 48%, rgba(0,212,255,1) 100%);
 }
+.text-search{
+  width: 20vw;
+}
+.nav-item:hover{
+  font-size: 1.3em;
+}
+.logo-svg{
+  display: inline-flex;
+  max-height: 4vh;
+}
 .buttonnavigation{
   background-color: white;
+}
+.container-fluid{
+  display: block;
 }
 .material-symbols-outlined{
   display: inline-flex;

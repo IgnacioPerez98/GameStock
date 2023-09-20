@@ -1,6 +1,40 @@
+@font-face {
+  font-family: Organo;
+  src: url("../../../assets/Organo.ttf");
+}
+.titulo{
+  margin-top: 10px;
+  font-family: Organo;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+.element{
+  width: 100%;
+  margin-bottom: 5px;
+  font-family: Organo;
+  font-size: 0.9em;
+}
+.element:hover{
+  font-family: Organo;
+  font-size: 1em;
+}
+.platform-icon{
+  fill: white;
+  display: inline-flex;
+  align-content: center;
+  justify-items: center;
+}
+.name-platform{
+  margin-left: 1.01em;
+  display: inline-flex;
+  align-content: center;
+  justify-items: center;
+}
 .comp{
   position: absolute;
-  width:15vw;
+  width:100%;
   height: 100vh;
-  background-color: red;
+  background-color: #caf0f8;
 }

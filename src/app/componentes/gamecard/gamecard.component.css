@@ -1,3 +1,11 @@
+@font-face {
+  font-family: Organo;
+  src: url("../../../assets/Organo.ttf");
+}
+.titulo{
+  font-family: Organo;
+}
+
 .card{
   display: flex;
   margin: 10px ;
