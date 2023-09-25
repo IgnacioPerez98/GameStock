@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DataconsumeService} from "../../services/data/dataconsume.service";
 import {GameResponseModel, Games} from "../../models/api/GameResponseModel";
 import {ResponseGameById} from "../../models/api/ResponseGameById";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-gamecard',
@@ -9,7 +10,9 @@ import {ResponseGameById} from "../../models/api/ResponseGameById";
   styleUrls: ['./gamecard.component.css']
 })
 export class GamecardComponent implements OnInit{
+
     numpage:number = 1;
+    nombrejuegoabuscar :string = "";
     respuestaJuego :GameResponseModel;
     juegos : Games[] = [];
     loading :boolean = true;
@@ -20,6 +23,18 @@ export class GamecardComponent implements OnInit{
     constructor(private data :DataconsumeService)
     {
 
+    }
+    public SearhQuery(){
+      this.loading = true;
+      this.loadingModal = true;
+      this.data.SearchQuery(this.nombrejuegoabuscar).subscribe(
+        (response)=>{
+          this.respuestaJuego = response;
+          this.juegos = response.results;
+          this.loading = false;
+          this.loadingModal = false;
+        }
+      )
     }
     public NexPage(){
       this.loading = true;
@@ -35,12 +50,33 @@ export class GamecardComponent implements OnInit{
         }
         this.ReloadGames(this.numpage);
     }
-    private ReloadGames(page:number){
+    public ReloadGames(page:number = 1){
+      this.loading = true;
+      this.loadingModal = true;
       this.data.GetGames(page).subscribe(
         (response) => {
           this.respuestaJuego = response;
           this.juegos = response.results;
           this.loading = false;
+          this.loadingModal = false;
+        },
+        (error) => {
+          console.error('Error fetching data:', error);
+          this.loading = false;
+          this.errorMessage = "Ops algo falló...."
+        }
+      );
+    }
+    public CleanGames(page:number = 1){
+      this.loading = true;
+      this.loadingModal = true;
+      this.nombrejuegoabuscar = "";
+      this.data.GetGames(page).subscribe(
+        (response) => {
+          this.respuestaJuego = response;
+          this.juegos = response.results;
+          this.loading = false;
+          this.loadingModal = false;
         },
         (error) => {
           console.error('Error fetching data:', error);

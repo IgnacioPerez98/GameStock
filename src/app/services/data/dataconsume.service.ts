@@ -21,6 +21,10 @@ export class DataconsumeService {
       return  this.httpclient.get<GameResponseModel>(url);
   }
 
+  public SearchQuery(param:string){
+    const url:string = `https://api.rawg.io/api/games?key=${this.apikey}&search=${param}`;
+    return  this.httpclient.get<GameResponseModel>(url);
+  }
   public  GetGameById(id:string){
     const url:string = `https://api.rawg.io/api/games/${id}?key=${this.apikey}`;
     return  this.httpclient.get<ResponseGameById>(url);

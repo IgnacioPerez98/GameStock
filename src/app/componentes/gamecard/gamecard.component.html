@@ -6,7 +6,11 @@
   </div>
 </ng-container>
     <ng-template #dataContent>
-      <h3 class="titulo">Todas las Plataformas:</h3>
+      <h3 class="titulo">Todas las Plataformas:</h3><div class="input-group">
+      <input type="text" [(ngModel)]="nombrejuegoabuscar" class="form-control" placeholder="Ingrese nombre de juego">
+      <button class="btn btn-primary"  (click)="SearhQuery()" type="button">Buscar</button>
+      <button class="btn btn-outline-danger" (click)="CleanGames()" type="button">Borrar</button>
+    </div>
       <div class="container">
         <div class="row" >
           <div class="col-lg-4 col-md-6 col-sm-6 col-12" *ngFor="let j of juegos">
