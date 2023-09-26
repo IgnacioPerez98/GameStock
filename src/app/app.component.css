@@ -17,6 +17,7 @@
   margin-top: 10vh;
   position: absolute;
   overflow: scroll;
+  min-width: 320px;
   min-height: 82vh;
   max-height: 82vh;
 }

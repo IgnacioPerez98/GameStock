@@ -4,6 +4,7 @@
 }
 .titulo{
   font-family: Organo;
+  font-size: 40px;
 }
 .input-group{
   display: flex;
